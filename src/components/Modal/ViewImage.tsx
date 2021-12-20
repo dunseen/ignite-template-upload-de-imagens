@@ -19,5 +19,25 @@ export function ModalViewImage({
   onClose,
   imgUrl,
 }: ModalViewImageProps): JSX.Element {
-  // TODO MODAL WITH IMAGE AND EXTERNAL LINK
+  return (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent maxW="900px" maxH="600px">
+        <ModalBody>
+          <Image src={imgUrl} />
+        </ModalBody>
+
+        <ModalFooter
+          bg="gray.800"
+          borderRadius="0px 0px 6px 6px"
+          justifyContent="left"
+          h="8"
+        >
+          <Link target="blank" href={imgUrl}>
+            Abrir original
+          </Link>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
 }
